@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #f9fafb;
   --foreground: #171717;
 }
 
@@ -12,15 +12,94 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ==========================================================================
+   KODE UTILITY RESPONSIVE ULTRA-FLEXIBLE UNTUK ALL MOBILE & NOTEBOOK
+   ========================================================================== */
+
+/* 
+  Wadah utama aplikasi:
+  - Secara default (di semua HP, Tablet, & Notebook): Lebar penuh (w-full) dan tinggi penuh (h-screen) tanpa bingkai samping.
+  - Khaki khusus di layar besar PC/Laptop (bawaan breakpoint 'lg'): Otomatis mengunci ukuran max-w-md di tengah layar.
+*/
+@utility app-container {
+  @apply w-full h-screen mx-auto flex flex-col bg-white font-sans text-black lg:max-w-md lg:shadow-2xl;
+}
+
+/* Header atas */
+@utility app-header {
+  @apply bg-green-700 text-white p-5 shadow-md shrink-0;
+}
+
+/* Area konten utama yang bisa digeser (scroll) */
+@utility app-main {
+  @apply flex-1 overflow-y-auto p-4 bg-gray-50 pb-10;
+}
+
+/* Judul bagian */
+@utility section-title {
+  @apply text-lg font-bold text-gray-700 mb-3;
+}
+
+/* Grid menu utama: Menggunakan kombinasi grid pintar */
+@utility menu-grid {
+  @apply grid grid-cols-2 gap-3;
+}
+
+/* Gaya tombol kotak menu responsif */
+@utility btn-menu-green {
+  @apply bg-green-600 text-white p-4 rounded-2xl shadow-sm font-bold text-lg flex flex-col items-center justify-center gap-2 aspect-square w-full active:scale-95 transition-all;
+}
+@utility btn-menu-red {
+  @apply bg-red-600 text-white p-4 rounded-2xl shadow-sm font-bold text-lg flex flex-col items-center justify-center gap-2 aspect-square w-full active:scale-95 transition-all;
+}
+@utility btn-menu-blue {
+  @apply bg-blue-600 text-white p-4 rounded-2xl shadow-sm font-bold text-lg flex flex-col items-center justify-center gap-2 aspect-square w-full active:scale-95 transition-all;
+}
+@utility btn-menu-dark {
+  @apply bg-gray-800 text-white p-4 rounded-2xl shadow-sm font-bold text-lg flex flex-col items-center justify-center gap-2 aspect-square w-full active:scale-95 transition-all;
+}
+
+/* Desain kartu baris ringkasan stok barang */
+@utility stok-card {
+  @apply bg-white p-4 rounded-xl shadow-sm border border-gray-100 flex justify-between items-center;
+}
+
+/* ==========================================================================
+   TAMBAHAN UTILITY UNTUK HALAMAN SEWA BARU RESPONSIF & USER-FRIENDLY
+   ========================================================================== */
+
+/* Kotak putih pembungkus per bagian (Pilih Barang & Data Penyewa) */
+@utility form-card {
+  @apply bg-white p-4 rounded-xl shadow-sm border border-gray-200;
+}
+
+/* Judul kecil di setiap bagian formulir */
+@utility form-section-title {
+  @apply text-lg font-bold text-gray-800 mb-3;
+}
+
+/* Label teks penunjuk input (Nama, WA, dll) */
+@utility form-label {
+  @apply block text-sm font-bold text-gray-700 mb-1;
+}
+
+/* Kolom isian teks responsif yang ramah sentuhan jari orang tua */
+@utility form-input {
+  @apply w-full border border-gray-300 p-3 rounded-lg text-lg text-black bg-white focus:outline-none focus:border-green-600 transition-all;
+}
+
+/* Kotak hitam ringkasan total biaya di bagian bawah */
+@utility summary-box {
+  @apply bg-gray-800 text-white p-5 rounded-xl shadow-md;
+}
+
+/* Tombol raksasa konfirmasi transaksi sewa */
+@utility btn-submit-transaksi {
+  @apply w-full bg-green-600 hover:bg-green-700 text-white text-xl font-bold py-4 rounded-xl shadow-lg active:scale-98 transition-all cursor-pointer;
 }
